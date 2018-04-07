@@ -256,7 +256,6 @@ class SwipeableViews extends Component {
   }
 
   componentDidMount() {
-    alert("ok");
     // Subscribe to transition end events.
     this.transitionListener = addEventListenerEnhanced(
       this.containerNode,
@@ -677,6 +676,9 @@ class SwipeableViews extends Component {
     this.ignoreNextScrollEvents = true;
     // Reset the scroll position.
     event.target.scrollLeft = 0;
+
+    //otaviojr: do not scroll tabs
+    return;
 
     if (this.props.onChangeIndex && indexNew !== indexLatest) {
       this.props.onChangeIndex(indexNew, indexLatest, {
